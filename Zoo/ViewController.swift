@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var titleLabel: UILabel!
-    var languagePicker: UIPickerView!
+    var pickerView: UIPickerView!
     var getStartedBtn: UIButton!
     var languageData = ["Armenian", "Russian", "English"]
 
@@ -47,15 +47,15 @@ extension ViewController {
     func initTitleLable() {
         titleLabel = UILabel()
         titleLabel.text = "Welcome ZOO"
-        titleLabel.textColor = .systemPink
+        titleLabel.textColor = .black
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func initLanguagePicker() {
-        languagePicker = UIPickerView()
-        languagePicker.delegate = self
-        languagePicker.dataSource = self
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        pickerView = UIPickerView()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func initGetStartedBtn() {
@@ -69,7 +69,7 @@ extension ViewController {
     
     func addViews() {
         view.addSubview(titleLabel)
-        view.addSubview(languagePicker)
+        view.addSubview(pickerView)
         view.addSubview(getStartedBtn)
     }
     
@@ -78,11 +78,12 @@ extension ViewController {
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             
-            languagePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            languagePicker.topAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            pickerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pickerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
             getStartedBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            getStartedBtn.topAnchor.constraint(equalTo: languagePicker.bottomAnchor, constant: -100),
+            getStartedBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            getStartedBtn.widthAnchor.constraint(equalToConstant: 150)
         ])
     }
 }
